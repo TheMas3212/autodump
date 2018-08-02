@@ -1,5 +1,17 @@
 Python Script used to automaticly dump lsnes movie files to r16m automatically
 
+this script expects lsnes-dumpavi to be present in the same directory
+
+[Base Folder]
+    lsnes-dumpavi (executable)
+    autodump.py (main python script)
+    [dumps]
+        (dump file appears here)
+    [movies]
+        lsnes_movie_file.lsmv
+    [scripts]
+        dumpscript.lua (modified version of the lsnes dump script)
+
 dumpscript.lua is a modified version of the lsnes dump script from 
 https://github.com/dwangoac/TASBot-Projects
 
