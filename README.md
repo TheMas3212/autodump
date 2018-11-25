@@ -32,7 +32,9 @@ the on_frame_emulated function has
 added to the start of it to stop the dump after the movie finishes
 and finaly at the end of the script outside of any functions so it gets called when the lua script gets loaded is
 ```
-outfile = string.sub(@@LUA_SCRIPT_FILENAME@@, 1, -5)
+outfile = movie.get_last_movie()
+outfile = string.gsub(outfile, '/movies/', '/dumps/', 1)
+outfile = string.sub(outfile, 1, -6)
 start_dump(outfile)
 print(outfile)
 exec("pause-emulator")
@@ -41,7 +43,7 @@ exec("clear-pause-on-end")
 ```
 
 which in order of line
-1. get the name of the script to get the name to dump the movie to
+1. get the name of the loaded movie and process it to produce a filename for the dump file
 2. start the dump by calling the start_dump function
 3. print the output filename
 4. call 'pause-emulator' to unpause the emulator

@@ -77,7 +77,7 @@ on_frame_emulated = function()
         if not polled and firstpoll then
             nopollcount = nopollcount + 1
         end
-    
+
         polled = nil
     end
 end
@@ -89,7 +89,9 @@ on_paint = function()
     end
 end
 
-outfile = string.sub(@@LUA_SCRIPT_FILENAME@@, 1, -5)
+outfile = movie.get_last_movie()
+outfile = string.gsub(outfile, '/movies/', '/dumps/', 1)
+outfile = string.sub(outfile, 1, -6)
 
 start_dump(outfile)
 print(outfile)
